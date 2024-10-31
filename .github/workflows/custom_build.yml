@@ -42,14 +42,15 @@ jobs:
       with:
         # platforms: linux/amd64,linux/arm64
         platforms: linux/amd64
-        push: false
+        push: true
         tags: zabbix-build-base:alpine-5.0.44
-        outputs: type=docker
+        # outputs: type=docker
         context: ./Dockerfiles/build-base/alpine/
     - name: build the docker images --- build-pgsql
       uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
       with:
         platforms: linux/amd64
         push: true
+        build-args: "REGISTRY_PREFIX=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/"
         tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/zabbix-build-pgsql:alpine-5.0.44
         context: ./Dockerfiles/server-pgsql/alpine
