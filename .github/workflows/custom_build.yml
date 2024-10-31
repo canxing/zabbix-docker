@@ -1,0 +1,46 @@
+name: Build images (DockerHub)
+
+on:
+  release:
+    types:
+      - published
+  push:
+    branches:
+    - "branch_5.0.44"
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+   contents: read
+
+env:
+  DOCKER_REGISTRY: registry.cn-chengdu.aliyuncs.com
+  DOCKER_NAMESPACE: liuxin-registry
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+    - name: set up QEMU
+      uses: docker/setup-qemu-action@v3
+    - name: set up buildx
+      uses: docker/setup-buildx-action@v3
+    # https://github.com/docker/login-action
+    - name: docker Login
+      uses: docker/login-action@v3.2.0
+      with:
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_USERNAME }}
+    # https://github.com/docker/build-push-action
+    - name: build the docker images --- build-base
+      uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
+      with:
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/zabbix-build-base:alpine-5.0.44
+        context: ./Dockerfiles/build-base/alpine/Dockerfile
