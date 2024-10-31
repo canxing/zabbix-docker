@@ -34,22 +34,22 @@ RUN set -eux && \
     INSTALL_PKGS="bash \
             apache2 \
             curl \
-            php7-apache2 \
-            php7-bcmath \
-            php7-ctype \
-            php7-gd \
-            php7-gettext \
-            php7-json \
-            php7-ldap \
-            php7-pgsql \
-            php7-mbstring \
-            php7-session \
-            php7-simplexml \
-            php7-sockets \
-            php7-fileinfo \
-            php7-xmlreader \
-            php7-xmlwriter \
-            php7-openssl \
+            php82-apache2 \
+            php82-bcmath \
+            php82-ctype \
+            php82-gd \
+            php82-gettext \
+            php82-json \
+            php82-ldap \
+            php82-pgsql \
+            php82-mbstring \
+            php82-session \
+            php82-simplexml \
+            php82-sockets \
+            php82-fileinfo \
+            php82-xmlreader \
+            php82-xmlwriter \
+            php82-openssl \
             postgresql-client" && \
     apk add \
             --no-cache \
@@ -98,9 +98,9 @@ RUN set -eux && \
     chown --quiet -R zabbix:root /etc/zabbix/ /usr/share/zabbix/include/defines.inc.php /usr/share/zabbix/modules/ && \
     chgrp -R 0 /etc/zabbix/ /usr/share/zabbix/include/defines.inc.php /usr/share/zabbix/modules/ && \
     chmod -R g=u /etc/zabbix/ /usr/share/zabbix/include/defines.inc.php /usr/share/zabbix/modules/ && \
-    chown --quiet -R zabbix:root /etc/apache2/ /etc/php7/ && \
-    chgrp -R 0 /etc/apache2/ /etc/php7/ && \
-    chmod -R g=u /etc/apache2/ /etc/php7/
+    chown --quiet -R zabbix:root /etc/apache2/ /etc/php82/ && \
+    chgrp -R 0 /etc/apache2/ /etc/php82/ && \
+    chmod -R g=u /etc/apache2/ /etc/php82/
 
 EXPOSE 8080/TCP 8443/TCP
 
