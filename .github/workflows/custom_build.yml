@@ -53,4 +53,4 @@ jobs:
         push: true
         build-args: "REGISTRY_PREFIX=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/"
         tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/zabbix-build-pgsql:alpine-5.0.44
-        context: ./Dockerfiles/server-pgsql/alpine
+        context: ./Dockerfiles/build-pgsql/alpine
