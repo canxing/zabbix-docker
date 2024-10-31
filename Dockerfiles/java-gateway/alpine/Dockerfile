@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
 ARG MAJOR_VERSION=5.0
 ARG ZBX_VERSION=${MAJOR_VERSION}.44
-ARG BUILD_BASE_IMAGE=zabbix-build-mysql:alpine-${ZBX_VERSION}
-
-FROM ${BUILD_BASE_IMAGE} AS builder
+ARG BUILD_BASE_IMAGE=zabbix-build-pgsql:alpine-${ZBX_VERSION}
+ARG REGISTRY_PREFIX
+FROM ${REGISTRY_PREFIX}${BUILD_BASE_IMAGE} AS builder
 
 FROM alpine:3.18.9
 
