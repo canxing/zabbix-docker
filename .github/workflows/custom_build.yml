@@ -43,4 +43,4 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/zabbix-build-base:alpine-5.0.44
-        context: ./Dockerfiles/build-base/alpine/Dockerfile
+        context: ./Dockerfiles/build-base/alpine/
