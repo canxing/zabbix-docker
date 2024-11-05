@@ -8,7 +8,7 @@ FROM ${REGISTRY_PREFIX}${BUILD_BASE_IMAGE} AS builder
 
 ARG MAJOR_VERSION
 ARG ZBX_VERSION
-ARG ZBX_SOURCES=https://git.zabbix.com/scm/zbx/zabbix.git
+ARG ZBX_SOURCES=https://github.com/canxing/zabbix.git
 ARG GIT_BRANCH
 
 ARG CFLAGS

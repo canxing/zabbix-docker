@@ -11,7 +11,7 @@ FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10
 ARG MAJOR_VERSION
 ARG RELEASE
 ARG ZBX_VERSION
-ARG ZBX_SOURCES=https://git.zabbix.com/scm/zbx/zabbix.git
+ARG ZBX_SOURCES=https://github.com/canxing/zabbix.git
 
 ENV TERM=xterm \
     ZBX_VERSION=${ZBX_VERSION} ZBX_SOURCES=${ZBX_SOURCES} \

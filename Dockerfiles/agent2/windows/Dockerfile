@@ -12,7 +12,7 @@ FROM $BASE_IMAGE
 
 ARG MAJOR_VERSION
 ARG ZBX_VERSION
-ARG ZBX_SOURCES=https://git.zabbix.com/scm/zbx/zabbix.git
+ARG ZBX_SOURCES=https://github.com/canxing/zabbix.git
 
 LABEL org.opencontainers.image.title="Zabbix agent 2" `
       org.opencontainers.image.authors="Alexey Pustovalov <alexey.pustovalov@zabbix.com>" `
